@@ -1,0 +1,30 @@
+package com.feelsokman.daggerreview.di
+
+import android.app.Application
+import com.feelsokman.daggerreview.ReviewApplication
+import dagger.BindsInstance
+import dagger.Component
+import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
+
+@Singleton
+@Component(
+    modules = [
+        AndroidSupportInjectionModule::class,
+        AppModule::class,
+        ActivityBuilderModule::class
+
+    ]
+)
+interface AppComponent : AndroidInjector<ReviewApplication> {
+
+    @Component.Builder
+    interface Builder {
+
+        @BindsInstance
+        fun application(application: Application): Builder
+
+        fun build(): AppComponent
+    }
+}
