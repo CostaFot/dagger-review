@@ -1,6 +1,6 @@
 package com.feelsokman.daggerreview.di
 
-import com.feelsokman.daggerreview.MainActivity
+import com.feelsokman.daggerreview.ui.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

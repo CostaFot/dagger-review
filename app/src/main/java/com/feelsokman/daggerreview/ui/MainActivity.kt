@@ -1,9 +1,10 @@
-package com.feelsokman.daggerreview
+package com.feelsokman.daggerreview.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import com.feelsokman.daggerreview.R
 import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -12,15 +13,18 @@ class MainActivity : AppCompatActivity() {
     @Inject
     var debugFlag: Boolean = false
 
+    @Inject
+    internal lateinit var factoryNowPlaying: NowPlayingMoviesViewModelFactory
 
-
+    private lateinit var viewModelNowPlaying: NowPlayingMoviesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textView.text = debugFlag.toString()
-
+        viewModelNowPlaying =
+            ViewModelProviders.of(this, factoryNowPlaying)
+                .get(NowPlayingMoviesViewModel::class.java)
     }
 }

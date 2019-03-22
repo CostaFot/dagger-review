@@ -1,16 +1,11 @@
 package com.feelsokman.daggerreview
 
-import com.feelsokman.daggerreview.di.AppComponent
 import com.feelsokman.daggerreview.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
 
 class ReviewApplication : DaggerApplication() {
-
-    companion object {
-        lateinit var component: AppComponent
-    }
 
     override fun onCreate() {
         super.onCreate()
@@ -31,9 +26,8 @@ class ReviewApplication : DaggerApplication() {
     activities/fragments/viewmodels but you will see normal Java DI mostly in other projects
      */
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        component = DaggerAppComponent.builder()
+        return DaggerAppComponent.builder()
             .application(this)
             .build()
-        return component
     }
 }
