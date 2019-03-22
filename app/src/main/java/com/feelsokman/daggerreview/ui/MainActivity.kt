@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.feelsokman.daggerreview.R
 import dagger.android.AndroidInjection
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -26,5 +27,8 @@ class MainActivity : AppCompatActivity() {
         viewModelNowPlaying =
             ViewModelProviders.of(this, factoryNowPlaying)
                 .get(NowPlayingMoviesViewModel::class.java)
+
+
+        button.setOnClickListener { viewModelNowPlaying.getNowPlayingMovies() }
     }
 }
