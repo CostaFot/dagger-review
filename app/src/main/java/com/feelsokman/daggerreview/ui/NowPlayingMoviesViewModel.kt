@@ -18,7 +18,7 @@ class NowPlayingMoviesViewModel(
 
     private val compositeDisposable = CompositeDisposable()
     private var latestMoviesCall: Disposable? = null
-    val moviesData = MutableLiveData<List<Movies>>()
+    val moviesData = MutableLiveData<Movies>()
 
     // a class to wrap around the response to make things easier later
     inner class Result(val listOfMovies: Movies? = null, val errorMessage: String? = null) {
