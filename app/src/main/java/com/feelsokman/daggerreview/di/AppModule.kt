@@ -27,7 +27,7 @@ import javax.inject.Singleton
 @Module
 class AppModule {
 
-    // Some static strings declared here to give names to some variables below so they are orphans
+    // Some static strings declared here to give names to some variables below so they aren't orphans
     companion object {
         const val NAME_URL = "key.base.url"
         const val API_KEY = "key.api.key"
