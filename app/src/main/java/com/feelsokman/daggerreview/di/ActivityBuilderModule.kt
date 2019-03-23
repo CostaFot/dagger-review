@@ -7,7 +7,11 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBuilderModule {
 
-    // this is how you inject into activites/fragments/android specific stuff
+    /**
+     * This is how you inject into activities/fragments/android specific stuff
+     * You gotta write "AndroidInjection.inject(this)"
+     * right before your onCreate in the activity to make this work!
+     */
     @ContributesAndroidInjector
     abstract fun mainActivity(): MainActivity
 }

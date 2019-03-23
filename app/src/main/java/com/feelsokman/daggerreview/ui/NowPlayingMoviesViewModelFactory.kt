@@ -5,6 +5,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.feelsokman.daggerreview.MovieApi
 import io.reactivex.Scheduler
 
+/**
+ * Copy pasta how to ViewModelFactory
+ * Google says you cannot pass stuff in the ViewModel constructor like normal
+ * Just do this I guess, who am I to judge
+ */
 class NowPlayingMoviesViewModelFactory(
     private val placeholderApi: MovieApi,
     private val apiKey: String,

@@ -8,6 +8,11 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
+/**
+ * The AppComponent is like a basket for your modules.
+ *  Put all your modules here!
+ *  Just throwing most of the stuff in AppModule for now to get things working
+ */
 @Singleton
 @Component(
     modules = [
@@ -17,6 +22,7 @@ import javax.inject.Singleton
 
     ]
 )
+// Dagger-Android specific thingy, pure copy pasta! Whatever dude
 interface AppComponent : AndroidInjector<ReviewApplication> {
 
     @Component.Builder
