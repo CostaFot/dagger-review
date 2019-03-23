@@ -24,6 +24,10 @@ class NowPlayingMoviesViewModel(
     private var latestMoviesCall: Disposable? = null
     val moviesData = MutableLiveData<Movies>()
 
+    /**
+     * Execute the API call to get some movies
+     * Not explaining this one as Retrofit isn't the point for this example
+     */
     fun getNowPlayingMovies() {
 
         latestMoviesCall?.dispose()
@@ -35,7 +39,7 @@ class NowPlayingMoviesViewModel(
             .subscribe(
                 {
                     moviesData.postValue(it)
-                    Timber.d("Success")
+                    Timber.d("wew lad things went well")
                 },
                 {
                     moviesData.postValue(null)
@@ -48,6 +52,7 @@ class NowPlayingMoviesViewModel(
         compositeDisposable.clear()
     }
 
+    // Killing all background threads (if any exist) cause they don't deserve to live when the activity is not running
     override fun onCleared() {
         cancelAllJobs()
         super.onCleared()

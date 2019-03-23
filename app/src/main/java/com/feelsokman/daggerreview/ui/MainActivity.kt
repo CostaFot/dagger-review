@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
             ViewModelProviders.of(this, factoryNowPlaying)
                 .get(NowPlayingMoviesViewModel::class.java)
 
-        // observing changes in moviesData for fun
+        // observing changes in moviesData for fun, don't have to do this
         viewModelNowPlaying.moviesData.observe(this,
             Observer { movies ->
                 movies?.let {
                     textView.text = movies.toString()
                 }
                     ?: run {
-                        textView.text = "Something went wrong bruh"
+                        textView.text = "oopsie doopsie something went wrong"
                     }
 
             })
