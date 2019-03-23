@@ -16,15 +16,6 @@ class ReviewApplication : DaggerApplication() {
         }
     }
 
-    /**
-    This is how most people do DI by having a static component
-    and manually inject in the constructor / init
-    if you do things properly you wouldn't need static component stuff
-    but would get everything ready to use in the modules
-
-    Provide everything in the modules ready to use is the best option then inject stuff into
-    activities/fragments/viewmodels but you will see normal Java DI mostly in other projects
-     */
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         return DaggerAppComponent.builder()
             .application(this)
